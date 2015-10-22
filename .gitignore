@@ -1,0 +1,11 @@
+.rspec
+/log*
+log/development.log
+/tmp
+/public/system
+/coverage/
+/spec/tmp
+config/initializers/secret_token.rb
+config/secrets.yml
+/.bundle
+/vendor/bundle
