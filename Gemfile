@@ -9,7 +9,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
-gem 'devise'
+gem 'devise', '~> 3.4.0'
 gem 'haml-rails'
 gem 'bootstrap-sass'
 gem 'omniauth-facebook'
