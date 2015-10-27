@@ -13,6 +13,7 @@ gem 'devise', '~> 3.4.0'
 gem 'haml-rails'
 gem 'bootstrap-sass'
 gem 'omniauth-facebook'
+gem 'carrierwave'
 
 group :development, :test do
   gem 'byebug'
