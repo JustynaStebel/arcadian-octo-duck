@@ -14,6 +14,7 @@ gem 'haml-rails'
 gem 'bootstrap-sass'
 gem 'omniauth-facebook'
 gem 'carrierwave'
+gem 'activeadmin', github: 'activeadmin'
 
 group :development, :test do
   gem 'byebug'
