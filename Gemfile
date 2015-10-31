@@ -15,6 +15,7 @@ gem 'bootstrap-sass'
 gem 'omniauth-facebook'
 gem 'carrierwave'
 gem 'activeadmin', github: 'activeadmin'
+gem 'angularjs-rails'
 
 group :development, :test do
   gem 'byebug'

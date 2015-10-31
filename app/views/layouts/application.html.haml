@@ -1,0 +1,10 @@
+!!!
+%html(lang="en" ng-app="Home")
+  %head
+    %title Arcadian Octo Duck online shop
+    = stylesheet_link_tag "//fonts.googleapis.com/css?family=Amatic+SC"
+    = stylesheet_link_tag "application", media: "all"
+    = csrf_meta_tags
+
+  %body
+    = yield
