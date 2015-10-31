@@ -14,5 +14,8 @@
         %h1 ARCADIAN OCTODUCK SHOP
         %img{ src: "http://i90.photobucket.com/albums/k251/netuza/Muju/Works/OctoDuckCROP.jpg", width: 500 }
     = yield
+    = page_specific_js = "#{params[:controller]}_#{params[:action]}"
+    = javascript_include_tag page_specific_js if Rails.application.assets.find_asset page_specific_js
+    = stylesheet_link_tag  page_specific_js if Rails.application.assets.find_asset page_specific_js
     #footer
       =# render :partial => 'footer'
