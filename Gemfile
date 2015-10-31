@@ -11,7 +11,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise', '~> 3.4.0'
 gem 'haml-rails'
-gem 'bootstrap-sass'
+gem 'bootstrap-sass', '~> 3.2.0'
 gem 'omniauth-facebook'
 gem 'carrierwave'
 gem 'activeadmin', github: 'activeadmin'

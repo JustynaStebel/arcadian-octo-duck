@@ -3,8 +3,16 @@
   %head
     %title Arcadian Octo Duck online shop
     = stylesheet_link_tag "//fonts.googleapis.com/css?family=Amatic+SC"
-    = stylesheet_link_tag "application", media: "all"
+    = stylesheet_link_tag "application", media: "all", 'data-turbolinks-track' => true
     = csrf_meta_tags
 
   %body
+    #name
+      #login
+        =# render :partial => 'login'
+      #logo
+        %h1 ARCADIAN OCTODUCK SHOP
+        %img{ src: "http://i90.photobucket.com/albums/k251/netuza/Muju/Works/OctoDuckCROP.jpg", width: 500 }
     = yield
+    #footer
+      =# render :partial => 'footer'
