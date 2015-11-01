@@ -5,6 +5,19 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-Admin.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
+admin = Admin.find_or_create_by(email: 'admin@example.com')
+admin.password = 'password'
+admin.password_confirmation = 'password'
+admin.save
 
-Product.create!(name: 'red shoes', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.')
+product1 = Product.find_or_create_by(name: 'red shoes', description: 'Product 1', price: 50.0, active: true)
+product1.image = Rails.root.join("app/assets/images/red_shoes.jpg").open
+product1.save
+
+product2 = Product.find_or_create_by(name: 'black shoes', description: 'Product 2', price: 60.0, active: true)
+product2.image = Rails.root.join("app/assets/images/black_shoes.jpg").open
+product2.save
+
+product3 = Product.find_or_create_by(name: 'yellow shoes', description: 'Product 3', price: 120.0, active: true)
+product3.image = Rails.root.join("app/assets/images/yellow_shoes.jpg").open
+product3.save

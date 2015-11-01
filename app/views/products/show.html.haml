@@ -1,5 +1,7 @@
 %h2= @product.name
+%p= image_tag(@product.image_url, width: 300) if @product.image.present?
 %p= @product.description
-%p= @product.image
+%p= @product.price
 %br
+#navi
   = link_to "Back to all products", products_path

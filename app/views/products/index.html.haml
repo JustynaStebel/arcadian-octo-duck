@@ -1,14 +1,17 @@
 %h1 All products
 %table
   %tr
-    %th Name
-    %th Description
-    %th Image
+    %th.name Name
+    %th.image Image
+    %th.descript Description
+    %th.price Price
 
   - @products.each do |product|
     %tr
       %td= link_to product.name, product
+      %td= image_tag(product.image_url, width: 150) if product.image.present?
       %td= product.description
-      %td= product.image
+      %td= product.price
 %br
+#navi
   = link_to "Back to main page", root_path

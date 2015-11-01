@@ -4,7 +4,33 @@
 body {
   width: 100%;
 }
+h1, h2 {
+  text-align: center;
+}
+#navi {
+  text-align: center;
+  text-decoration: none;
+}
 #logo {
   text-align: center;
   font-family: 'Amatic SC', cursive;
+}
+table {
+  width: 80%;
+  margin: auto;
+}
+td {
+  padding: 10px;
+}
+th.name {
+  width: 15%;
+}
+th.descript {
+  width: 30%;
+}
+th.image {
+  width: 30%;
+}
+th.price {
+  width: 10%;
 }
