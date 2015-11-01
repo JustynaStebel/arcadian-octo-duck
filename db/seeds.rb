@@ -21,3 +21,10 @@ product2.save
 product3 = Product.find_or_create_by(name: 'yellow shoes', description: 'Product 3', price: 120.0, active: true)
 product3.image = Rails.root.join("app/assets/images/yellow_shoes.jpg").open
 product3.save
+
+order1 = Order.find_or_create_by( id: 1, subtotal: 12.00, total: 22.00, status: 1)
+order1.save
+order2 = Order.find_or_create_by( id: 2, subtotal: 102.00, total: 124.00, status: 2)
+order2.save
+order3 = Order.find_or_create_by( id: 3, subtotal: 100.00, total: 117.00, status: 3)
+order3.save
