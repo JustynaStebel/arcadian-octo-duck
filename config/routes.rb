@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   devise_for :admins, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   devise_for :users
@@ -16,6 +17,9 @@ Rails.application.routes.draw do
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   resources :products
+  resources :orders
+  resources :order_items, only: [:create, :update, :destroy]
+  resource :cart, only: [:show]
 
   # Example resource route with options:
   #   resources :products do
