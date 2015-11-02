@@ -10,8 +10,8 @@ class OrderItem < ActiveRecord::Base
   def unit_price
     if persisted?
       self[:unit_price]
-    else
-      product.price
+    #else
+      #product.price
     end
   end
 

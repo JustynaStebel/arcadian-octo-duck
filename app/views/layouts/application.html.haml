@@ -10,6 +10,10 @@
     = csrf_meta_tags
 
   %body
+    .container
+      .row
+        .col-xs-6.text-right
+          %h1.cart-text= render 'layouts/cart_text'
     #name
       / #login
       / = render partial: 'login'
