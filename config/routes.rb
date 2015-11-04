@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   devise_for :admins, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  devise_for :users
+  devise_for :users, path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'register' }
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   # Example resource route (maps HTTP verbs to controller actions automatically):
   resources :products
   resources :orders
-  resources :order_items, only: [:create, :update, :destroy]
+  resources :order_items
   resource :cart, only: [:show]
 
   # Example resource route with options:

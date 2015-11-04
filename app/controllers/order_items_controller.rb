@@ -6,6 +6,10 @@ class OrderItemsController < ApplicationController
     session[:order_id] = @order.id
   end
 
+  def new
+    @order_item = @order.order_items.new(order_item_params)
+  end
+
   def update
     @order = current_order
     @order_item = @order.order_items.find(params[:id])

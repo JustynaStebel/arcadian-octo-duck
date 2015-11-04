@@ -1,6 +1,9 @@
 .row
   .col-xs-8
-    %h4 product.name
+    %h4
+      = link_to product.name, product
+      = image_tag(product.image_url, width: 150) if product.image.present?
+
   .col-xs-4
     = form_for order_item, remote: true do |f|
       %h4.text-right
