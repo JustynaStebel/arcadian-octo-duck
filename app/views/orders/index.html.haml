@@ -1,2 +1,16 @@
-%h1 Orders#index
-%p Find me in app/views/orders/index.html.haml
+.container
+  %h3 Orders
+  %table.table.table-bordered.table-striped
+    %tr
+      %th Order No
+      %th Subtotal
+      %th Total
+      %th Order Status
+      %td &nbsp;
+    - @orders.each do |order|
+      %tr
+        %td= order.id
+        %td= number_to_currency order.subtotal
+        %td= number_to_currency order.total
+        %td= order.status.humanize
+        %td= link_to "Edit", edit_order_path(order), class: "btn btn-primary"

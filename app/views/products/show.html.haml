@@ -1,7 +1,15 @@
-%h2= @product.name
-%p= image_tag(@product.image_url, width: 300) if @product.image.present?
-%p= @product.description
-%p= @product.price
-%br
-#navi
-  = link_to "Back to all products", products_path
+.well
+  .row
+    .col-xs-8
+      %h4
+        = @product.name
+    .col-xs-4
+      = form_for @order_item, remote: true do |f|
+        %h4.text-right
+          Unit Price:
+          %span{ style: "color: green" }= number_to_currency @product.price
+        .input-group
+          = f.number_field :quantity, value: 1, class: "form-control", min: 1
+          .input-group-btn
+            = f.hidden_field :product_id, value: @product.id
+            = f.submit "Add to Cart", class: "btn btn-primary"

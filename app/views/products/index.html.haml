@@ -5,13 +5,14 @@
     %th.image Image
     %th.descript Description
     %th.price Price
+    %th
 
   - @products.each do |product|
     %tr
       %td= link_to product.name, product
       %td= image_tag(product.image_url, width: 150) if product.image.present?
       %td= product.description
-      %td= product.price
+      %td= number_to_currency product.price
 %br
 #navi
   = link_to "Back to main page", root_path
