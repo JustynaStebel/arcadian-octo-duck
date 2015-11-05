@@ -1,5 +1,5 @@
 class OrderItem < ActiveRecord::Base
-  belongs_to :product
+  belongs_to :product, inverse_of: :order_items
   belongs_to :order
   validates :quantity, presence: true, numericality: { only_integer: true, greater_than: 0 }
   validates :product, presence: true
@@ -9,11 +9,8 @@ class OrderItem < ActiveRecord::Base
   before_save :finalize
 
   def unit_price
-    if persisted?
-      self[:unit_price]
-    else
-      product.price
-    end
+    @product = product
+    product.price if product
   end
 
   def total_price

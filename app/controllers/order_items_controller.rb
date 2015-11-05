@@ -6,10 +6,6 @@ class OrderItemsController < ApplicationController
     session[:order_id] = @order.id
   end
 
-  def new
-    @order_item = @order.order_items.new(order_item_params)
-  end
-
   def update
     @order = current_order
     @order_item = @order.order_items.find(params[:id])
@@ -25,7 +21,7 @@ class OrderItemsController < ApplicationController
   end
 
 private
-  def order_items_params
+  def order_item_params
     params.require(:order_item).permit(:quantity, :product_id)
   end
 end
