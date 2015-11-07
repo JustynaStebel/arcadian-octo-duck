@@ -1,24 +1,24 @@
 class User < ActiveRecord::Base
-  attr_accessor :login
+  attr_accessor :username
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, authentication_keys: [:login]
+         :rememberable, :trackable, :validatable, authentication_keys: [:username]
   has_many :products
 
   validates_presence_of :username
-  validate :validate_username
 
-  def validate_username
-    if User.where(email: username).exists?
-      errors.add(:username, :invalid)
-    end
+
+  def email_required?
+    false
   end
 
+  def email_changed?
+    false
+  end
+
+protected
   def self.find_for_database_authentication(warden_conditions)
     conditions = warden_conditions.dup
-    if login = conditions.delete(:login)
-      where(conditions.to_hash).where(["username = :value OR lower(email) = lower(:value)", { value: login }]).first
-    else
-      where(conditions.to_hash).first
-    end
+    login = conditions.delete(:login)
+    where(conditions).where(["lower(username) = :value", { :value => login.downcase }]).first
   end
 end
