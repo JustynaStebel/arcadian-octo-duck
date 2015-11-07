@@ -1,6 +1,7 @@
 class CategoriesController < ApplicationController
   def index
     @categories = Category.all
+    @product = Product.new
   end
 
   def show
@@ -9,6 +10,6 @@ class CategoriesController < ApplicationController
 
 private
   def category_params
-    params.require(:product).permit(:name)
+    params.require(:category).permit(:name)
   end
 end

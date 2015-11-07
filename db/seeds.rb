@@ -10,15 +10,15 @@ admin.password = 'password'
 admin.password_confirmation = 'password'
 admin.save
 
-product1 = Product.find_or_create_by(name: 'red shoes', description: 'Product 1', price: 50.0, active: true)
+product1 = Product.find_or_create_by(name: 'red shoes', description: 'Product 1', price: 50.0, active: true, category_name: 'shoes', category_id: 1)
 product1.image = Rails.root.join("app/assets/images/red_shoes.jpg").open
 product1.save
 
-product2 = Product.find_or_create_by(name: 'black shoes', description: 'Product 2', price: 60.0, active: true)
+product2 = Product.find_or_create_by(name: 'black shoes', description: 'Product 2', price: 60.0, active: true, category_name: 'shoes', category_id: 1)
 product2.image = Rails.root.join("app/assets/images/black_shoes.jpg").open
 product2.save
 
-product3 = Product.find_or_create_by(name: 'yellow shoes', description: 'Product 3', price: 120.0, active: true)
+product3 = Product.find_or_create_by(name: 'yellow shoes', description: 'Product 3', price: 120.0, active: true, category_name: 'shoes', category_id: 1)
 product3.image = Rails.root.join("app/assets/images/yellow_shoes.jpg").open
 product3.save
 
