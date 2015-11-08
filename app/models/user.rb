@@ -1,24 +1,35 @@
 class User < ActiveRecord::Base
-  attr_accessor :login
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, authentication_keys: [:login]
+  devise :database_authenticatable, :registerable, :omniauthable,
+         :rememberable, :trackable, :validatable, authentication_keys: [:username],
+         :omniauth_providers => [:facebook]
   has_many :products
 
   validates_presence_of :username
-  validate :validate_username
 
-  def validate_username
-    if User.where(email: username).exists?
-      errors.add(:username, :invalid)
+
+  def email_required?
+    false
+  end
+
+  def email_changed?
+    false
+  end
+
+  def self.from_omniauth(auth)
+    where(email: auth.info.email).first_or_create do |user|
+      user.provider = auth.provider
+      user.uid = auth.uid
+      user.email = auth.info.email
+      user.username = auth.info.name
+      user.password = Devise.friendly_token[0,20]
     end
   end
 
-  def self.find_for_database_authentication(warden_conditions)
-    conditions = warden_conditions.dup
-    if login = conditions.delete(:login)
-      where(conditions.to_hash).where(["username = :value OR lower(email) = lower(:value)", { value: login }]).first
-    else
-      where(conditions.to_hash).first
+  def self.new_with_session(params, session)
+    super.tap do |user|
+      if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
+        user.email = data["email"] if user.email.blank?
+      end
     end
   end
 end

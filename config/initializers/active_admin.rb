@@ -55,6 +55,9 @@ ActiveAdmin.setup do |config|
   # This setting changes the method which Active Admin calls
   # within the application controller.
   config.authentication_method = :authenticate_admin!
+  def authenticate_admin!
+    redirect_to new_user_session_path unless current_user.is_admin?
+  end
 
   # == User Authorization
   #
@@ -112,7 +115,7 @@ ActiveAdmin.setup do |config|
   # roots for each namespace.
   #
   # Default:
-  # config.root_to = 'dashboard#index'
+  #config.root_to = 'dashboard#index'
 
   # == Admin Comments
   #
@@ -183,13 +186,13 @@ ActiveAdmin.setup do |config|
   # and feel.
   #
   # To load a stylesheet:
-  #   config.register_stylesheet 'my_stylesheet.css'
+  config.register_stylesheet 'active_admin.css'
   #
   # You can provide an options hash for more control, which is passed along to stylesheet_link_tag():
   #   config.register_stylesheet 'my_print_stylesheet.css', media: :print
   #
   # To load a javascript file:
-  #   config.register_javascript 'my_javascript.js'
+  config.register_javascript 'active_admin.js'
 
   # == CSV options
   #

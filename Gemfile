@@ -17,6 +17,7 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'activeadmin', github: 'activeadmin'
 gem 'angularjs-rails'
+gem 'dotenv-rails'
 
 group :development, :test do
   gem 'byebug'
