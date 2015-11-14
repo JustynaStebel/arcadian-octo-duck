@@ -1,8 +1,12 @@
 %h3.text-center Categories
 .row
   .col-xs-6.col-xs-offset-3
-    - @category.products.each do |product|
-      = @category.product.name
+    - @categories.each do |category|
+      %h4 Category
+      = category.name
+      %h5 Products
+      - category.products.each do |product|
+        = link_to product.name, product
 %br
 #navi
   = link_to "Back to main page", root_path

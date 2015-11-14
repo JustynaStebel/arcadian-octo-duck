@@ -34,3 +34,18 @@ th.image {
 th.price {
   width: 10%;
 }
+.product {
+  width: 80%;
+  margin: auto;
+}
+.product-image {
+  float: left;
+  padding: 10px;
+  width: 50%;
+}
+.product-info {
+  float: right;
+  padding: 10px;
+  width: 50%;
+  margin-top: -270px;
+}
