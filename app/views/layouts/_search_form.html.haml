@@ -1,0 +1,4 @@
+= form_tag(:search_products, url: { controller: 'products', action: 'Search'}, html: { method: 'get' }) do |f|
+  = text_field_tag :query, params[:query]
+  %br/
+  = f.submit "Search"

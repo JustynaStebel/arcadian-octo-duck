@@ -8,7 +8,7 @@
     = form_for order_item, remote: true do |f|
       %h4.text-right
         Unit Price:
-        %span{ style: "color:green" }= number_to_currency order_item.unit_price
+        %span{ style: "color:green" }= number_to_currency product.price
         .row
           .col-xs-4
             = f.number_field :quantity, value: 1, class: "form-control", min: 1

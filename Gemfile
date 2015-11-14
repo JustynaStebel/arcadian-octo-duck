@@ -18,6 +18,7 @@ gem 'mini_magick'
 gem 'activeadmin', github: 'activeadmin'
 gem 'angularjs-rails'
 gem 'dotenv-rails'
+gem 'pg_search', '~> 1.0.5'
 
 group :development, :test do
   gem 'byebug'
@@ -31,6 +32,6 @@ end
 
 group :development do
   gem 'web-console', '~> 2.0'
-  gem 'spring'
+  gem 'spring', '~> 1.4.0'
 end
 

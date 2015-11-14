@@ -1,0 +1,9 @@
+%h3.text-center Category: #{@category.name}
+.row
+  .col-xs-6.col-xs-offset-3
+    %h4 Products in this category
+    - @category.products.each do |product|
+      = link_to product.name, product
+%br
+#navi
+  = link_to "Back to main page", categories_path
