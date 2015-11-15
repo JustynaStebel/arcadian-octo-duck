@@ -2,7 +2,9 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.all
-    @products = Product.custom_search(params[:search])
+    if params[:search]
+      @products = Product.custom_search(params[:search])
+    end
     @order_item = current_order.order_items.new
     @categories = Category.all
   end
