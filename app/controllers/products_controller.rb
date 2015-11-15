@@ -1,7 +1,8 @@
 class ProductsController < ApplicationController
 
   def index
-    @products = Product.filter(params.slice(:name, :color, :category_name))
+    @products = Product.custom_search(params[:search])
+    #@products = Product.filter(params.slice(:name, :color, :category_name))
     @order_item = current_order.order_items.new
     @categories = Category.all
   end
@@ -10,10 +11,10 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
   end
 
-  def search
-    @product = Product.custom_search(params[:query])
-    render 'index'
-  end
+  #def search
+    #@product = Product.custom_search(params[:custom_search])
+    #render 'index'
+  #end
 
   private
 
