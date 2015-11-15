@@ -18,4 +18,6 @@
         %h4.text-right
           Total Price:
           %span{ style:"color: green" }= number_to_currency order_item.total_price
+  .row
+    %h4 Proceed to #{ link_to "payment", new_charge_path }
 

@@ -19,6 +19,7 @@ gem 'activeadmin', github: 'activeadmin'
 gem 'angularjs-rails'
 gem 'dotenv-rails'
 gem 'pg_search', '~> 1.0.5'
+gem 'stripe-rails'
 
 group :development, :test do
   gem 'byebug'

@@ -1,0 +1,8 @@
+= form_tag charges_path(order_id: current_order.id) do
+  %article
+    - if flash[:error].present?
+      #error_explanation
+        = flash[:error]
+    = label_tag 'amount', 'To Pay', class: 'amount'
+    = label_tag 'amount', "$#{@amount}.00", class: 'amount-figure'
+    %script.stripe-button{ "data-amount" => @amount, "data-key" => ENV['STRIPE_PUBLISHABLE_KEY'], "data-locale" => "auto", src: "https://checkout.stripe.com/checkout.js" }

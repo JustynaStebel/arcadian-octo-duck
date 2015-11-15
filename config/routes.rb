@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   resources :order_items
   resources :categories, only: [:index, :show]
   resource :cart, only: [:show]
+  resources :charges
 
   # Example resource route with options:
   #   resources :products do
