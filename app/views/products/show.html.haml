@@ -1,15 +1,16 @@
-.well
-  .row
-    .col-xs-8
-      %h4
-        = @product.name
-    .col-xs-4
-      = form_for @order_item, remote: true do |f|
-        %h4.text-right
-          Unit Price:
-          %span{ style: "color: green" }= number_to_currency @product.price
-        .input-group
-          = f.number_field :quantity, value: 1, class: "form-control", min: 1
-          .input-group-btn
-            = f.hidden_field :product_id, value: @product.id
-            = f.submit "Add to Cart", class: "btn btn-primary"
+.product
+  %h1
+    = @product.name
+  .product-img
+    = image_tag(@product.image_url, width: 300) if @product.image.present?
+  .product-info
+    %h4 Description
+    = @product.description
+    %h4 Category
+    = @product.category.name
+    %br
+    %h6 View more from this #{link_to "category", categories_path}
+    %h4 Price
+    = number_to_currency @product.price
+%p.text-center
+  Please #{link_to "go back", products_path} to add this product to your cart.

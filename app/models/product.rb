@@ -5,5 +5,10 @@ class Product < ActiveRecord::Base
   mount_uploader :image, ImageUploader
   has_many :order_items
 
-  default_scope { where(active: true) }
+  include PgSearch
+  pg_search_scope :custom_search,
+  against: [:name, :category_name, :color],
+  using: { tsearch: { prefix: true } }
+
+  #default_scope { where(active: true) }
 end

@@ -1,8 +1,8 @@
-%h3.text-center Categories
+%h3.text-center Categories - click to view products
 .row
   .col-xs-6.col-xs-offset-3
-    - @category.products.each do |product|
-      = @category.product.name
+    - @categories.each do |category|
+      = link_to category.name, category
 %br
 #navi
   = link_to "Back to main page", root_path

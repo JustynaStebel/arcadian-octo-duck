@@ -2,7 +2,9 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.all
+    @products = Product.custom_search(params[:search])
     @order_item = current_order.order_items.new
+    @categories = Category.all
   end
 
   def show
@@ -12,7 +14,6 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:name, :description, :image, :price, :category_name, :category_id)
+    params.require(:product).permit(:name, :description, :image, :price, :category_name, :category_id, :color)
   end
-
 end
